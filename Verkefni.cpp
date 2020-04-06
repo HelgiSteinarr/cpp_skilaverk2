@@ -1,5 +1,10 @@
 #include "Verkefni.h"
 
+Verkefni::Verkefni()
+    : description(""), schoolWork(false), weight(0)
+{
+}
+
 Verkefni::Verkefni(string desc, bool schoolWork, int weight)
 {
     setDesc(desc);
@@ -29,3 +34,83 @@ void Verkefni::setSchoolWork(bool schoolWorkArg){ this->schoolWork = schoolWorkA
 
 int Verkefni::getWeight(){ return this->weight; }
 void Verkefni::setWeight(int weightArg){ this->weight = weightArg; }
+
+Verkefni Verkefni::first()
+{
+    return Verkefni();
+}
+
+
+// TODO: gera operator overload betur
+bool Verkefni::operator<(Verkefni& other) 
+{
+    if(this->schoolWork){
+
+        if(other.schoolWork){
+            return this->weight < other.weight;
+        }else{
+            return false;
+        }
+
+    }else{
+        if(other.schoolWork){
+            return true;
+        }else{
+            return this->weight < other.weight;
+        }
+    }
+}
+bool Verkefni::operator>(Verkefni& other)
+{
+    if(this->schoolWork){
+
+        if(other.schoolWork){
+            return this->weight > other.weight;
+        }else{
+            return true;
+        }
+
+    }else{
+        if(other.schoolWork){
+            return false;
+        }else{
+            return this->weight > other.weight;
+        }
+    }
+}
+bool Verkefni::operator<=(Verkefni& other)
+{
+    if(this->schoolWork){
+
+        if(other.schoolWork){
+            return this->weight <= other.weight;
+        }else{
+            return false;
+        }
+
+    }else{
+        if(other.schoolWork){
+            return true;
+        }else{
+            return this->weight <= other.weight;
+        }
+    }
+}
+bool Verkefni::operator>=(Verkefni& other)
+{
+    if(this->schoolWork){
+
+        if(other.schoolWork){
+            return this->weight >= other.weight;
+        }else{
+            return true;
+        }
+
+    }else{
+        if(other.schoolWork){
+            return false;
+        }else{
+            return this->weight >= other.weight;
+        }
+    }
+}

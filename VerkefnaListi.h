@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 
-#include "Verkefni.h"
 #include "VerkefniNode.h"
 
 using namespace std;
@@ -9,8 +8,18 @@ using namespace std;
 class VerkefnaListi
 {
     private:
-        /* data */
+        VerkefniNode* head;
     public:
-        VerkefnaListi(/* args */);
+        VerkefnaListi();
         ~VerkefnaListi();
+
+        void setjaILista(Verkefni verkInst);
+        void setjaILista(string desc, bool schoolWork, int weight);
+
+        void prentaOllVerkefni();
+
+		VerkefniNode faNaestaVerkefni();
+
+        void prentaSkolaverkefni();
+        void prentaEkkiSkolaverkefni();
 };

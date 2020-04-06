@@ -12,6 +12,7 @@ class Verkefni
         int weight;
         
     public:
+        Verkefni();
         Verkefni(string desc, bool schoolWork, int weight);
         ~Verkefni();
 
@@ -25,4 +26,11 @@ class Verkefni
 
         int getWeight();
         void setWeight(int weight);
+        
+        Verkefni first();
+
+        bool operator<(Verkefni& other);
+        bool operator>(Verkefni& other);
+        bool operator<=(Verkefni& other);
+        bool operator>=(Verkefni& other);
 };
